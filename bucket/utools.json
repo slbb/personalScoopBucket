@@ -1,0 +1,49 @@
+{
+    "homepage": "https://u.tools/",
+    "description": "Cross-platform productivity tools",
+    "version": "4.1.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://res.u-tools.cn/version2/uTools-4.1.0.exe#/dl.7z",
+            "hash": "39A6C3D52C35B4288858EA8CA43342B74BF6FFB735F71D059364C72C5859E672",
+            "installer": {
+                "script": [
+                    "7z x \"$dir\\`$PLUGINSDIR\\app-64.7z\" $(\"-o\" + $dir)",
+                    "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
+                    "Remove-Item \"$dir\\`$R0\" -Recurse"
+                ]
+            }
+        },
+        "32bit": {
+            "url": "https://res.u-tools.cn/version2/uTools-4.1.0-ia32.exe#/dl.7z",
+            "hash": "6F56CE1FB31C409CB4B626DD67FD360F4591ED50C38DECD830FA64AA5E5B177C",
+            "installer": {
+                "script": [
+                    "7z x \"$dir\\`$PLUGINSDIR\\app-32.7z\" $(\"-o\" + $dir)",
+                    "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
+                    "Remove-Item \"$dir\\`$R0\" -Recurse"
+                ]
+            }
+        }
+    },
+    "shortcuts": [
+        [
+            "uTools.exe",
+            "uTools"
+        ]
+    ],
+    "checkver": {
+        "url": "https://u.tools/",
+        "regex": "V([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://res.u-tools.cn/version2/uTools-$version.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://res.u-tools.cn/version2/uTools-$version-ia32.exe#/dl.7z"
+            }
+        }
+    }
+}
