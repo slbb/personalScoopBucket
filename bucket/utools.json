@@ -2,6 +2,7 @@
     "homepage": "https://u.tools/",
     "description": "Cross-platform productivity tools",
     "version": "4.1.0",
+    "license": "Freeware",
     "architecture": {
         "64bit": {
             "url": "https://res.u-tools.cn/version2/uTools-4.1.0.exe#/dl.7z",
