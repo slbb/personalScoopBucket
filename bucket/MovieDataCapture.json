@@ -15,7 +15,10 @@
         "architecture" : {
             "64bit": {
                 "url": "https://github.com/yoshiko2/Movie_Data_Capture/releases/download/$version/MDC-$version-Windows-amd64.zip",
-                "##" : "hash"
+                "hash": {
+                    "url": "https://github.com/yoshiko2/Movie_Data_Capture/releases/tag/$version",
+                    "hash": "(?s)$basename.*?$md5"
+                }
             }
         }
     }
