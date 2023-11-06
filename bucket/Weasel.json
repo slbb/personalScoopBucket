@@ -94,9 +94,11 @@
         "}"
     ],
     "checkver": {
-        "github": "https://github.com/rime/weasel"
+        "url": "https://api.github.com/repos/rime/weasel/releases/latest",
+        "jsonpath": "$..browser_download_url",
+        "regex": "download/([\\d.]+)/weasel-(?<buildVer>[\\d.]+)"
     },
     "autoupdate": {
-        "url": "https://github.com/rime/weasel/releases/download/$version/weasel-$version.0-installer.exe#/dl.7z"
+        "url": "https://github.com/rime/weasel/releases/download/$version/weasel-$matchBuildVer-installer.exe#/dl.7z"
     }
 }
