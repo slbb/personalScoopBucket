@@ -7,24 +7,18 @@
         "64bit": {
             "url": "https://res.u-tools.cn/version2/uTools-4.3.1.exe#/dl.7z",
             "hash": "8d0187b991c818a2fb28f757b11f7e225b94e2b698f539fb3339826767ee32d7",
-            "installer": {
-                "script": [
-                    "7z x \"$dir\\`$PLUGINSDIR\\app-64.7z\" $(\"-o\" + $dir)",
-                    "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
-                    "Remove-Item \"$dir\\`$R0\" -Recurse"
-                ]
-            }
+            "pre_install": [
+                "Expand-7zipArchive -Path \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\" -Recurse"
+            ]
         },
         "32bit": {
             "url": "https://res.u-tools.cn/version2/uTools-4.3.1-ia32.exe#/dl.7z",
             "hash": "54c557f971b62fa309789ab9433ef0ba1d657f03cc60d03ec22a3c3092601bb3",
-            "installer": {
-                "script": [
-                    "7z x \"$dir\\`$PLUGINSDIR\\app-32.7z\" $(\"-o\" + $dir)",
-                    "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
-                    "Remove-Item \"$dir\\`$R0\" -Recurse"
-                ]
-            }
+            "pre_install": [
+                "Expand-7zipArchive -Path \"$dir\\`$PLUGINSDIR\\app-32.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\" -Recurse"
+            ]
         }
     },
     "shortcuts": [
