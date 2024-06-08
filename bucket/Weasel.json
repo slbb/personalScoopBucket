@@ -1,9 +1,9 @@
 {
     "homepage": "https://rime.im/",
     "license": "GPL-3.0-or-later",
-    "version": "0.15.0",
-    "url": "https://github.com/rime/weasel/releases/download/0.15.0/weasel-0.15.0.0-installer.exe#/dl.7z",
-    "hash": "21b2b3ba19f11b308db3c50ce343a14a42ce10331e3c0b7021850ec6726dcd10",
+    "version": "0.16.1",
+    "url": "https://github.com/rime/weasel/releases/download/0.16.1/weasel-0.16.1.0-installer.exe#/dl.7z",
+    "hash": "bb5742f8e363690cc947ef310165a54ca43b8e3c8bf66c54d12bfb9bde5c45cd",
     "installer": {
         "script": [
             "# prompt for setting user folder path",
@@ -96,9 +96,9 @@
     "checkver": {
         "url": "https://api.github.com/repos/rime/weasel/releases/latest",
         "jsonpath": "$..browser_download_url",
-        "regex": "download/([\\d.]+)/weasel-(?<buildVer>[\\d.]+)"
+        "regex": "download/([\\d.]+)/weasel-(?<build>[\\d.]+)"
     },
     "autoupdate": {
-        "url": "https://github.com/rime/weasel/releases/download/$version/weasel-$matchBuildVer-installer.exe#/dl.7z"
+        "url": "https://github.com/rime/weasel/releases/download/$version/weasel-$matchBuild-installer.exe#/dl.7z"
     }
 }
