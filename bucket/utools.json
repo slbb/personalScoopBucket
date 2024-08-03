@@ -1,20 +1,20 @@
 {
     "homepage": "https://u.tools/",
     "description": "Cross-platform productivity tools",
-    "version": "5.1.1",
+    "version": "5.2.0",
     "license": "Freeware",
     "architecture": {
         "64bit": {
-            "url": "https://open.u-tools.cn/download/uTools-5.1.1.exe",
-            "hash": "281EBE07C89EE73920E3E936AA120A522D50954E53563817BCB186BE609507F7",
+            "url": "https://open.u-tools.cn/download/uTools-5.2.0.exe",
+            "hash": "cf57b2b2949f435ca0461c9ce96d930902189baf86d156eaf191fe494f67c52b",
             "pre_install": [
                 "Expand-7zipArchive -Path \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
                 "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\" -Recurse"
             ]
         },
         "32bit": {
-            "url": "https://open.u-tools.cn/download/uTools-5.1.1-ia32.exe",
-            "hash": "D43463B8FCB01D88BF543ADF041E67E7E780D108EF787736E910C94D89C3CA71",
+            "url": "https://open.u-tools.cn/download/uTools-5.2.0-ia32.exe",
+            "hash": "98080850d4c333799ceae8a757b4a623ea688f6008612548ea4e84aa61b8dd1f",
             "pre_install": [
                 "Expand-7zipArchive -Path \"$dir\\`$PLUGINSDIR\\app-32.7z\" \"$dir\"",
                 "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\" -Recurse"
