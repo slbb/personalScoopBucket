@@ -16,20 +16,22 @@
     },
     "post_install": [
         "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
-        "# set autorun on Windows startup",
-        "if ($global) {",
-        "    $exists = (Get-Item HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run).Property -contains \"WeaselServer\"",
-        "    if (!$exists) {",
-        "        New-ItemProperty -Path HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run -Name WeaselServer -PropertyType String -Value $dir\\WeaselServer.exe",
-        "    }",
-        "} else {",
-        "    # if install for current user, create .lnk file to autorun instead of Registry",
-        "    $wsShell = New-Object -ComObject WScript.Shell",
-        "    $wsShell = $wsShell.CreateShortcut(\"$($env:APPDATA)\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\WeaselServer.lnk\")",
-        "    $wsShell.TargetPath = \"$dir\\WeaselServer.exe\"",
-        "    $wsShell.WorkingDirectory = $dir",
-        "    $wsShell.Save()",
-        "}"
+        "# set autorun on Windows startup without registry editing",
+        "$lnkPath",
+        "if (!$global) {",
+        "    $lnkPath = \"$($env:APPDATA)\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\WeaselServer.lnk\"",
+        "}",
+        "else {",
+        "    $lnkPath = \"$($env:PROGRAMDATA)\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\WeaselServer.lnk\"",
+        "}",
+        "if (Test-Path $lnkPath) {",
+        "    Remove-Item $lnkPath",
+        "}",
+        "$wsShell = New-Object -ComObject WScript.Shell",
+        "$wsShell = $wsShell.CreateShortcut($lnkPath)",
+        "$wsShell.TargetPath = \"$dir\\WeaselServer.exe\"",
+        "$wsShell.WorkingDirectory = $dir",
+        "$wsShell.Save()"
     ],
     "shortcuts": [
         [
@@ -80,17 +82,23 @@
         ]
     ],
     "uninstaller": {
-        "file": "uninstall.exe"
+        "script": [
+            "# https://github.com/rime/weasel/blob/3c70aedf9ff6288be82041c580ff7f00c7f8e6f1/output/install.nsi#L362",
+            "Invoke-ExternalCommand \"$dir/WeaselServer.exe\" -ArgumentList '/quit'",
+            "Invoke-ExternalCommand \"$dir/WeaselSetup.exe\" -ArgumentList '/u' -RunAs"
+        ]
     },
     "post_uninstall": [
         "# remove autorun",
-        "# if install globally, the uninstall.exe will remove the Registry",
+        "$lnkPath",
         "if (!$global) {",
         "    $lnkPath = \"$($env:APPDATA)\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\WeaselServer.lnk\"",
-        "    $lnkExists = Test-Path $lnkPath",
-        "    if ($lnkExists) {",
-        "        Remove-Item $lnkPath",
-        "    }",
+        "}",
+        "else {",
+        "    $lnkPath = \"$($env:PROGRAMDATA)\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\WeaselServer.lnk\"",
+        "}",
+        "if (Test-Path $lnkPath) {",
+        "    Remove-Item $lnkPath",
         "}"
     ],
     "checkver": {
