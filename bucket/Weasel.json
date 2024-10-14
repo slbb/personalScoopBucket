@@ -81,13 +81,13 @@
             "【小狼毫】安装选项"
         ]
     ],
-    "uninstaller": {
-        "script": [
-            "# https://github.com/rime/weasel/blob/3c70aedf9ff6288be82041c580ff7f00c7f8e6f1/output/install.nsi#L362",
-            "Invoke-ExternalCommand \"$dir/WeaselServer.exe\" -ArgumentList '/quit'",
-            "Invoke-ExternalCommand \"$dir/WeaselSetup.exe\" -ArgumentList '/u' -RunAs"
-        ]
-    },
+    "pre_uninstall": [
+        "# https://github.com/rime/weasel/blob/3c70aedf9ff6288be82041c580ff7f00c7f8e6f1/output/install.nsi#L362",
+        "Write-Output \"Stopping WeaselServer.exe...\"",
+        "Invoke-ExternalCommand \"$dir/WeaselServer.exe\" -ArgumentList '/quit' | Out-Null",
+        "Write-Output \"Uninstalling IME...\"",
+        "Invoke-ExternalCommand \"$dir/WeaselSetup.exe\" -ArgumentList '/u' -RunAs | Out-Null"
+    ],
     "post_uninstall": [
         "# remove autorun",
         "$lnkPath",
