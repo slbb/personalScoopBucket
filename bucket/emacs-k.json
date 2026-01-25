@@ -9,7 +9,7 @@
         "bin\\runemacs.exe",
         "bin\\emacs.exe",
         "bin\\emacsclient.exe",
-        "bin\\emacsclientw.exe"
+        "bin\\emacsclientw.exe",
         [
             "bin\\emacsclientw.exe",
             "emw",
