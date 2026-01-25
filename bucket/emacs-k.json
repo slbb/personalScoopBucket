@@ -9,9 +9,7 @@
         "bin\\runemacs.exe",
         "bin\\emacs.exe",
         "bin\\emacsclient.exe",
-        "bin\\emacsclientw.exe",
-        "bin\\etags.exe",
-        "bin\\ctags.exe",
+        "bin\\emacsclientw.exe"
         [
             "bin\\emacsclientw.exe",
             "emw",
@@ -23,17 +21,6 @@
         "regex": "/tag/v([\\d\\w.-]+)"
     },
     "autoupdate": {
-        "url": "https://github.com/kiennq/emacs-build/releases/download/v$version/emacs-master-x86_64-full.zip"
-    },
-    "shortcuts": [
-        [
-            "bin\\runemacs.exe",
-            "Emacs"
-        ],
-        [
-            "bin\\emacsclientw.exe",
-            "Emacs Client",
-            "-c -n -a \"\""
-        ]
-    ]
+        "url": "https://github.com/kiennq/emacs-build/releases/download/v$version/mingw-w64-x86_64_emacs_$buildVersion_full.zip"
+    }
 }
