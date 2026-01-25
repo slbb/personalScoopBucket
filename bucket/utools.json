@@ -1,5 +1,5 @@
 {
-    "homepage": "https://u.tools/",
+    "homepage": "https://www.u-tools.cn/",
     "description": "Cross-platform productivity tools",
     "version": "7.5.1",
     "license": "Freeware",
@@ -28,7 +28,7 @@
         ]
     ],
     "checkver": {
-        "url": "https://u.tools/download",
+        "url": "https://www.u-tools.cn/download/",
         "regex": "v(?:<!--\\s+-->)?([\\d.]+)"
     },
     "autoupdate": {
