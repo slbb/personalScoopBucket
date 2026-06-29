@@ -2,9 +2,9 @@
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
     "homepage": "https://github.com/kiennq/emacs-build",
     "license": "GPLv3",
-    "version": "32.415.20260622.34090b17",
-    "url": "https://github.com/kiennq/emacs-build/releases/download/v32.415.20260622.34090b17/mingw-w64-x86_64_emacs_34090b17_full.zip",
-    "hash": "3479aabc85b33d91cab201880c5bbc0b4c8e6c7ee4b74a4e61ffd37c2c5401af",
+    "version": "32.416.20260629.0435b437",
+    "url": "https://github.com/kiennq/emacs-build/releases/download/v32.416.20260629.0435b437/mingw-w64-x86_64_emacs_0435b437_full.zip",
+    "hash": "b0fa2fd2797947343bc27de89555092d66b05ebaf845ed5d5e7b124c59649386",
     "bin": [
         "bin\\runemacs.exe",
         "bin\\emacs.exe",
