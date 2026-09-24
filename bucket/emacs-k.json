@@ -2,11 +2,11 @@
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
     "homepage": "https://github.com/kiennq/emacs-build",
     "license": "GPL-3.0-or-later",
-    "version": "32.423.20260917.6b08691b",
+    "version": "32.424.20260924.e90c1ea6",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/kiennq/emacs-build/releases/download/v32.423.20260917.6b08691b/mingw-w64-x86_64_emacs_6b08691b_full.zip",
-            "hash": "665620cb8943ebc66862795dca71c3b4075c0cd1b6cf48aa43cfe1d92169ded0"
+            "url": "https://github.com/kiennq/emacs-build/releases/download/v32.424.20260924.e90c1ea6/mingw-w64-x86_64_emacs_e90c1ea6_full.zip",
+            "hash": "639f5cb3a7d27b709b81fd9fd262eaff0e1accdea0bb04e41d91f8bbf2939366"
         }
     },
     "bin": [
